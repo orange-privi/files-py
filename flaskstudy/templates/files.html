@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>files</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+</head>
+<body>
+  <!-- 导航栏容器 -->
+  <div id="navbarContainer"></div>
+
+  <div>
+
+  </div>
+
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // 加载navbar.html并插入到容器中
+    fetch('navbar')
+      .then(response => {
+        if (!response.ok) throw new Error('导航栏文件加载失败');
+        return response.text();
+      })
+      .then(html => {
+        document.getElementById('navbarContainer').innerHTML = html;
+        // 重新初始化BS5的折叠组件（确保导航栏的响应式折叠功能正常）
+        new bootstrap.Collapse(document.getElementById('navbarNav'));
+      })
+      .catch(error => console.error('加载导航栏出错：', error));
+  </script>
+</body>
+</html>

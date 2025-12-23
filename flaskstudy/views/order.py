@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, request, render_template
 
 od = Blueprint('order', __name__)
 
@@ -10,6 +10,9 @@ def order_list():
     订单列表接口
     :return:
     """
+    if request.method == 'GET':
+        return render_template('order.html')
+
     pass
 
 

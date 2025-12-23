@@ -29,7 +29,7 @@ def login():
 
     if user_dict :
         # 校验通过，登录成功
-        return redirect('/order')
+        return redirect('/files')
 
     # 校验失败，登录失败
     return render_template('login.html', error="密码错误")
